@@ -381,3 +381,65 @@ if (logoutBtn) {
     window.location.href = 'index.html';
   };
 }
+
+
+/* =========================
+   6. USER LOGIN (detalle.html)
+========================= */
+
+// Simulated login status, pending change to align with the API (session, cookie, or local storage )
+
+let loggedIn = false;
+
+// Get references to the main elements
+const commentForm = document.getElementById('commentForm');
+const loginModalElement = document.getElementById('loginModal');
+const registerBtn = document.getElementById('registerBtn');
+const loginBtn = document.getElementById('loginBtn');
+
+
+// Create a Bootstrap modal instance
+const loginModal = new bootstrap.Modal(loginModalElement);
+
+
+// Handle comment submission
+commentForm.addEventListener('submit', function(e) {
+
+  // Prevent the form from submitting normally
+  e.preventDefault();
+
+  // Check if the user is logged in
+  if (!loggedIn) {
+
+    // If the user is NOT logged in, show the login modal
+    loginModal.show();
+    return;
+  }
+
+  // If the user IS logged in, proceed with posting the comment
+  // (Here you would normally send the comment to your backend)
+  alert('Comment successfully posted!');
+});
+
+
+// Redirect user to registration page
+registerBtn.addEventListener('click', () => {
+  window.location.href = 'registro.html';
+});
+
+
+// Redirect user to login page
+loginBtn.addEventListener('click', () => {
+  window.location.href = 'index.html';
+});
+
+
+// Handle logout button click
+logoutBtn.addEventListener('click', () => {
+
+  // Update login state
+  loggedIn = false;
+
+  // In a real application you would also clear tokens/session data
+  alert('You have successfully logged out.');
+});
