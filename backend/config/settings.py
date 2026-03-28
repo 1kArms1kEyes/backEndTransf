@@ -90,7 +90,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': os.environ['DATABASE_PASSWORD'],
         'HOST': os.environ['DATABASE_HOST'],
-        'PORT': 5432,
+        'PORT': 5433,
         'ATOMIC_REQUESTS': True,
     },
 }
