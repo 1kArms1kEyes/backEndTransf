@@ -135,7 +135,7 @@ const session = {
 <td class="ps-4">${p.id}</td>
 
 <td>
-<a href="detalle.html?id=${p.id}" class="text-dark fw-bold text-decoration-none">
+<a href="detalle.html?id=${p.id}" class="fw-bold product-link text-decoration-none">
 ${escapeHtml(p.name)}
 </a>
 </td>
@@ -487,10 +487,10 @@ Eliminar
           filtered
             .map(
               (c) => `
-<div class="card mb-2 p-2 shadow-sm border-0 small bg-light">
+<div class="card mb-2 p-3 shadow-sm small comment-card">
 <strong>${escapeHtml(c.user_username || c.user)}</strong>
-<span class="text-muted small ms-2">${c.date}</span>
-<p class="mb-0 text-muted">${escapeHtml(c.comment)}</p>
+<span class="comment-date small ms-2">${c.date}</span>
+<p class="mb-0 comment-text">${escapeHtml(c.comment)}</p>
 </div>
 `,
             )

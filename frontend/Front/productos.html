@@ -71,7 +71,7 @@
 
 
     <!-- TABS -->
-    <ul class="nav nav-tabs mb-4" id="adminTabs">
+    <ul class="nav nav-pills mb-4 gap-1" id="adminTabs">
 
       <li class="nav-item">
         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#productosTab" type="button">
@@ -122,10 +122,10 @@
 <h4 class="fw-bold mb-0">Gestión de Productos</h4>
 
 <button id="addProductBtn"
-class="btn btn-dark btn-sm"
+class="btn btn-dark btn-sm rounded-pill px-3"
 data-bs-toggle="modal"
 data-bs-target="#productModal">
-+ Agregar Producto
+<i class="bi bi-plus-lg me-1"></i> Agregar Producto
 </button>
 
 </div>
@@ -135,11 +135,11 @@ data-bs-target="#productModal">
           <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
 
             <div class="input-group" style="max-width:400px;">
-              <span class="input-group-text bg-white border-end-0">
+              <span class="input-group-text search-icon">
                 <i class="bi bi-search"></i>
               </span>
 
-              <input type="text" id="searchInput" class="form-control border-start-0"
+              <input type="text" id="searchInput" class="form-control search-input border-start-0"
                 placeholder="Buscar por nombre...">
             </div>
 

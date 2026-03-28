@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['DATABASE_NAME'],
+        'NAME': 'mobile_phones_db',
         'USER': 'postgres',
-        'PASSWORD': os.environ['DATABASE_PASSWORD'],
-        'HOST': os.environ['DATABASE_HOST'],
+        'PASSWORD': '123456',
+        'HOST': '127.0.0.1',
         'PORT': 5432,
         'ATOMIC_REQUESTS': True,
     },

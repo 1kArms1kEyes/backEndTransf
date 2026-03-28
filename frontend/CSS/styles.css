@@ -1,27 +1,56 @@
 /* Paleta corporativa */
 :root{
-  --brand-primary: #0d6efd; /* Bootstrap primary */
-  --brand-bg: #f8f9fa;
+  --brand-primary: #14b8a6; /* teal accent */
+  --brand-bg: #0f172a;      /* dark background */
+  --brand-surface: #1e293b; /* cards / surfaces */
+  --brand-border: #334155;  /* subtle borders */
+  --brand-text: #e2e8f0;    /* main text */
+  --brand-muted: #94a3b8;   /* secondary text */
 }
 
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--brand-bg);
+  color: var(--brand-text);
 }
 /* Tarjetas y sombras suaves */
 .card {
-  border: 0;
   border-radius: 0.5rem;
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-border);
+  color: var(--brand-text);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card p {
+  color: var(--brand-muted);
+}
+
+.card small {
+  color: var(--brand-muted);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Tabla: filas sutilmente destacadas */
 .table-hover tbody tr:hover {
-  background-color: rgba(13, 110, 253, 0.05);
+  background-color: rgba(20, 184, 166, 0.12);
 }
 
 /* Botones con leve transición */
 .btn {
   transition: all .15s ease-in-out;
+}
+.btn-primary {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.btn-primary:hover {
+  background-color: #0f766e;
+  border-color: #0f766e;
 }
 
 /* =========================
@@ -58,24 +87,26 @@ body {
    NAVBAR BRANDING
 ========================= */
 
-.navbar-brand {
-  font-weight: 700;
-  letter-spacing: -1px;
+.navbar {
+  background: #020617;
+  border-bottom: 1px solid var(--brand-border);
 }
 
+.navbar-brand {
+  color: var(--brand-primary) !important;
+}
 /* =========================
    FOOTER
 ========================= */
 
 .app-footer {
-  background-color: #000;  /* Black background */
-  color: #adb5bd;          /* Light gray text */
-  width: 100%;             /* Ensure full width */
+  background-color: #020617;
+  color: var(--brand-muted);
 }
 
 .app-footer h5,
 .app-footer h6 {
-  color: #fff;
+  color: var(--brand-text);
 }
 
 .footer-text {
@@ -84,9 +115,7 @@ body {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  font-size: 0.85rem;
-  color: #6c757d;
+  border-top: 1px solid var(--brand-border);
 }
 
 /* Sticky footer layout */
@@ -151,14 +180,14 @@ main {
 
 /* Background same as catalog */
 body.detalle-page {
-  background: #f8f9fa;
+  background: var(--brand-bg);
 }
 
 /* Product image card */
 .product-img {
   max-height: 400px;
   object-fit: contain;
-  background: white;
+ background: #020617;
   border-radius: 15px;
 }
 
@@ -185,7 +214,300 @@ overflow-x: auto;
 .sticky-actions {
 position: sticky;
 right: 0;
-background: white;
-box-shadow: -2px 0 4px rgba(0,0,0,0.05);
+background: var(--brand-surface);
+box-shadow: -2px 0 8px rgba(0,0,0,0.5);
 min-width: 160px;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+.search-dark {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+}
+
+.search-dark::placeholder {
+  color: #94a3b8;
+}
+
+.search-dark:focus {
+  background: #1e293b;
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 0.15rem rgba(20,184,166,0.25);
+  color: #e2e8f0;
+}
+
+/* =========================
+   PRODUCT CARD IMAGE
+========================= */
+
+
+.product-image-wrapper {
+  height: 250px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #020617;
+  border-bottom: 1px solid var(--brand-border);
+  overflow: hidden;
+  border-radius: 0.5rem 0.5rem 0 0; 
+  transition: transform 0.3s ease;
+}
+
+
+.product-image-wrapper img {
+  width: 100%;
+  object-fit: cover;
+  /* Start slightly lower */
+  transform: translateY(0);
+  animation: panImage 6s ease-in-out infinite alternate;
+}
+
+@keyframes panImage {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-30%); /* adjust for how much of the image you want to show */
+  }
+}
+
+.card:hover .product-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.card .p-3 {
+  padding: 1.5rem;
+}
+
+.card h6 {
+  font-size: 1.1rem;
+}
+
+.card p {
+  flex: 1; /* make synopsis grow */
+  font-size: 0.95rem;
+}
+
+.card .btn {
+  border-radius: 0.5rem;
+}
+
+/* =========================
+   SORTING DROP-DOWN
+   ======================= */
+
+
+.form-select {
+  background-color: var(--brand-surface);
+  color: var(--brand-text);
+  border: 1px solid var(--brand-border);
+}
+
+.form-select:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.15rem rgba(20,184,166,0.25);
+}
+
+
+/* =========================
+   BREADCRUMB
+   ======================= */
+.breadcrumb-item a {
+  color: var(--brand-primary);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: var(--brand-text);
+}
+
+.breadcrumb-divider {
+  color: var(--brand-muted);
+}
+
+/* =========================
+   COMMENTS CARD
+   ======================= */
+
+.card-header {
+  background: var(--brand-surface);
+  border-bottom: 1px solid var(--brand-border);
+  color: var(--brand-text);
+}
+
+/* =========================
+   COMMENTS FORM
+   ======================= */
+
+   .comment-form {
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-border);
+}
+
+#commentForm textarea {
+  background: #1e293b;
+  border: 1px solid var(--brand-border);
+  color: var(--brand-text);
+}
+
+#commentForm textarea::placeholder {
+  color: var(--brand-muted);
+}
+
+#commentForm textarea:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.15rem rgba(20,184,166,0.25);
+}
+
+/* =========================
+   COMMENTS LIST
+   ======================= */
+
+   #commentsList {
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+
+/* =========================
+   SEARCH INPUT
+========================= */
+
+.search-input{
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-border);
+  color: var(--brand-text);
+}
+
+.search-input::placeholder{
+  color: var(--brand-muted);
+}
+
+.search-input:focus{
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.15rem rgba(20,184,166,0.25);
+}
+
+.search-icon{
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-border);
+  color: var(--brand-muted);
+}
+
+
+.table thead {
+  background: var(--brand-surface);
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.table thead th{
+  color: var(--brand-text);
+}
+
+
+.table{
+  color: var(--brand-text);
+}
+
+.table tbody tr{
+  background: var(--brand-surface);
+}
+
+.table-hover tbody tr:hover{
+  background: rgba(20,184,166,0.08);
+}
+
+.product-link{
+  color: var(--brand-primary);
+}
+
+.product-link:hover{
+  text-decoration: underline;
+}
+
+.table td.text-muted{
+  color: var(--brand-muted) !important;
+}
+
+
+.table td,
+.table th {
+  background-color: var(--brand-surface) !important;
+  border-color: var(--brand-border);
+}
+
+
+.table-hover tbody tr:hover td {
+  background-color: rgba(20,184,166,0.08) !important;
+}
+
+/* =========================
+   LOGIN / SIGNUP MODAL
+========================= */
+
+.modal-content {
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-border);
+  color: var(--brand-text);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--brand-border);
+}
+
+.modal-title {
+  color: var(--brand-text);
+}
+
+/* inputs inside modal */
+
+.modal-content input {
+  background: #1e293b;
+  border: 1px solid var(--brand-border);
+  color: var(--brand-text);
+}
+
+.modal-content input::placeholder {
+  color: var(--brand-muted);
+}
+
+.modal-content input:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.15rem rgba(20,184,166,0.25);
+}
+
+/* modal text */
+
+.modal-content p,
+.modal-content label {
+  color: var(--brand-text);
+}
+
+/* close button */
+
+.btn-close {
+  filter: invert(1) brightness(2);
+}
+
+.table td,
+.table th {
+  color: var(--brand-text) !important;
+}
+
+.text-muted {
+  color: #cbd5e1 !important; /* soft light gray */
 }
