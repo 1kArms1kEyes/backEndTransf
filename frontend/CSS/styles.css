@@ -511,3 +511,15 @@ min-width: 160px;
 .text-muted {
   color: #cbd5e1 !important; /* soft light gray */
 }
+
+.btn-teal {
+  background-color: #14b8a6;   /* bright teal */
+  color: #ffffff;              /* white text */
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-teal:hover {
+  background-color: #2dd4bf;   /* lighter teal on hover */
+  color: #000;                 /* optional: darker text on hover for contrast */
+}
